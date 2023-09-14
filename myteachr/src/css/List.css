@@ -1,0 +1,51 @@
+:root{
+    --mainColor:#6bb282;
+}
+
+header{
+    background-color: var(--mainColor);
+
+}
+
+.container{
+    width: 95%;
+    /* background-color: orange; */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.container-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 130px;
+    padding: .5rem 0;
+}
+.list{
+    display: flex;
+}
+.listItem{
+    margin-top: .2em;
+}
+
+.listItem{
+   margin-left: 2em;;
+   color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.active{
+    border-bottom: .1em solid #fff;
+}
+
+.icon {
+    color: #fff;
+    font-size: 1.5rem !important;
+    margin-left: 1.5em;
+    margin-right: 1em;
+}

@@ -1,0 +1,21 @@
+.banner{
+  
+    top: 30%;
+    width: 100%;
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    /* background-color: yellow; */
+    
+}
+
+.search{
+   left: 20%;
+   top: 40%;
+   width: 60%;
+    position: absolute;
+    /* background-color: aqua; */
+    text-align: center;
+    padding: 1rem;
+
+}

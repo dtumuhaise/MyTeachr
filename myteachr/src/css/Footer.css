@@ -1,0 +1,14 @@
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    padding: .5rem;
+}
+
+.copyright p{
+    text-align: center;
+    color: grey;
+    margin-bottom: .5rem;
+    font-family: 'Poppins', sans-serif;
+}
