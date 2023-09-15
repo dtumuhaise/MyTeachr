@@ -2,9 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Teachers from "./components/Teachers";
-import Classes from "./components/Classes";
+import Store from "./components/Store";
 import List from "./components/List";
 import Footer from "./components/Footer";
+// import Events from "./components/Events";
+
 
 const App = () => {
   return (
@@ -13,7 +15,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/teachers" element={<Teachers />} />
-        <Route path="/classes" element={<Classes />} />
+        <Route path="/store" element={<Store />} />
       </Routes>
       <Footer />
 

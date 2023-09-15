@@ -19,7 +19,8 @@ const List = () => {
                 {/* <NavLink exact to="/" className="listItem" activeClassName="active">Home</NavLink>
                 <NavLink to="/about" className="listItem" activeClassName="active">About</NavLink> */}
                 <NavLink to="/teachers" className="listItem"  activeClassName="active">Find Teachers</NavLink>
-                <NavLink to="/classes" className="listItem"  activeClassName="active">Classes</NavLink>
+                <NavLink to="/store" className="listItem"  activeClassName="active">Store</NavLink>
+                <NavLink to="/events" className="listItem"  activeClassName="active">Events</NavLink>
             </div>
         </nav>
         <div className="icons">
