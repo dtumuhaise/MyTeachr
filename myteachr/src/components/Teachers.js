@@ -7,6 +7,30 @@ function Teachers() {
   return (
     <div className="container">
       <h1>Teachers</h1>
+
+      <div className="searchArea">
+        <div className="row">
+          <div className="col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Instrument"
+            />
+          </div>
+          <div className="col-md-4">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Location"
+            />
+          </div>
+          <div className="col-md-4">
+            <button className="btn btn-primary btn-block">Search</button>
+          </div>
+        </div>
+      </div>
+
+
       <ul className="list-group">
         {Users.map((user, index) => (
           <li key={index} className="list-group-item">

@@ -9,7 +9,7 @@ const Home = () => {
       <h1 className="text-secondary font-family-poppins">Find your teacher</h1>
       </div>
     
-      <div className="container mt-4">
+      <div className="searchArea">
         <div className="row">
           <div className="col-md-4">
             <input
@@ -30,6 +30,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 };

@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-center py-3">
+    <footer className="bg-dark text-white text-center py-3" style={{ opacity: 0.8 }}>
       <div className="container">
         <div className="rowFooter">
           <div className="col">
