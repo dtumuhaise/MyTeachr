@@ -10,12 +10,12 @@ const List = () => {
 <header>
     <div className="container container-flex">
         <div className="logo-container">
-        <a href="/" class="listItem" title="Home"><img src={logo} alt="logo" className="logo" /> </a>
+        <NavLink exact to="/" className="listItem" activeClassName="active"><a href="/"  title="Home"><img src={logo} alt="logo" className="logo" /> </a></NavLink>
         </div>    
         <nav>
             <div className="list">
-                {/* <NavLink exact to="/" className="listItem" activeClassName="active">Home</NavLink>
-                <NavLink to="/about" className="listItem" activeClassName="active">About</NavLink> */}
+               
+                {/* <NavLink to="/about" className="listItem" activeClassName="active">About</NavLink> */}
                 <NavLink to="/teachers" className="listItem"  activeClassName="active">Teachers</NavLink>
                 <NavLink to="/store" className="listItem"  activeClassName="active">Store</NavLink>
                 <NavLink to="/events" className="listItem"  activeClassName="active">Events</NavLink>
