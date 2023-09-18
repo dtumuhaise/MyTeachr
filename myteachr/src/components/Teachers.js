@@ -1,9 +1,32 @@
-import React from 'react';
+import React, { useState} from 'react';
 import Users from '../data/users';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Teachers.css';
 
 function Teachers() {
+  const [filter, setFilter] = useState({ instrument: '', location: '' });
+  const [filteredUsers, setFilteredUsers] = useState(Users);
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilter({ ...filter, [name]: value });
+
+    // Apply filters to the Users array based on instrument and location
+    const instrumentFilter = name === 'instrument' ? value.toLowerCase() : filter.instrument;
+    const locationFilter = name === 'location' ? value.toLowerCase() : filter.location;
+
+    const filtered = Users.filter((user) => {
+      const userInstrument = user.instrumentTaught.toLowerCase();
+      const userLocation = user.location.toLowerCase();
+
+      return (
+        (instrumentFilter === '' || userInstrument.includes(instrumentFilter)) &&
+        (locationFilter === '' || userLocation.includes(locationFilter))
+      );
+    });
+    setFilteredUsers(filtered);
+  };
+  
   return (
     <div className="container">
       <h1>Teachers</h1>
@@ -15,6 +38,9 @@ function Teachers() {
               type="text"
               className="form-control"
               placeholder="Instrument"
+              name="instrument"
+              value={filter.instrument}
+              onChange={handleFilterChange}
             />
           </div>
           <div className="col-md-4">
@@ -22,17 +48,20 @@ function Teachers() {
               type="text"
               className="form-control"
               placeholder="Location"
+              name='location'
+              value={filter.location}
+              onChange={handleFilterChange}
             />
           </div>
           <div className="col-md-4">
-            <button className="btn btn-primary btn-block">Search</button>
+            {/* <button className="btn btn-primary btn-block" onClick={handleSearch}>Search</button> */}
           </div>
         </div>
       </div>
 
 
       <ul className="list-group">
-        {Users.map((user, index) => (
+        {filteredUsers.map((user, index) => (
           <li key={index} className="list-group-item">
             <div className="row">
               <div className="col-md-3">
