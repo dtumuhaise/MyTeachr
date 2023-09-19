@@ -73,18 +73,23 @@ function Teachers() {
       </div>
 
 
-      <ul className="list-group">
+      <div className="container">
+        <div className="row">
         {filteredUsers.map((user, index) => (          
-          <li key={index} className="list-group-item">
-            <div className="row">
-              <div className="col-md-3">
-                <img src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} className="img-fluid rounded-circle" />
-              </div>
-              <div className="col-md-6">
-              <h2>
+          <div key={index} className="col-md-4 mb-4">
+            <div className="card items" >
+              <span
+                    className="link"
+                    onClick={() => openProfileModal(user)}
+                    style={{ cursor: 'pointer' }}>
+                    <img src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} className="card-img-top img-fluid rounded-circle custom-img-size"/>
+                  </span>
+              
+              <div className="card-body">
+                <h2 className="card-title">
                   {/* Open the profile modal on name click */}
                   <span
-                    className="btn btn-link"
+                    className="link"
                     onClick={() => openProfileModal(user)}
                     style={{ cursor: 'pointer' }}>
                     {user.firstName} {user.lastName}
@@ -93,12 +98,11 @@ function Teachers() {
                 <p><strong>Instrument Taught:</strong> {user.instrumentTaught}</p>
                 <p><strong>Fee Per Hour(UGX):</strong> {user.feeInUgandaShillings}</p>
                 <p><strong>Location:</strong> {user.location}</p>
+                </div>
               </div>
-            </div>
-          </li>
-          
+            </div>          
         ))}
-      </ul>
+      </div>
 
       <Modal show={selectedTeacher !== null} onHide={closeProfileModal} centered>
         <Modal.Header closeButton>
@@ -131,6 +135,7 @@ function Teachers() {
       </Modal>
   
     </div>
+  </div>
   );
 }
 

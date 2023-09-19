@@ -9,3 +9,18 @@ p, h2{
     margin-left: 20%;
   
 }
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: green;
+}
+
+.custom-img-size{
+    width: 50%;
+}
+
