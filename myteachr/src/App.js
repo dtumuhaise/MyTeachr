@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Teachers from "./components/Teachers";
 import Store from "./components/Store";
@@ -16,6 +16,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/store" element={<Store />} />
+        {/* <Route path="/teacher/:id" component={TeacherProfile} /> */}
       </Routes>
       <Footer />
 

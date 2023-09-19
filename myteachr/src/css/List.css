@@ -21,8 +21,8 @@ header{
 }
 
 .logo{
-    width: 130px;
-    padding: .5rem 0;
+    width: 180px;
+    /* padding: .5rem 0; */
 }
 .list{
     display: flex;
