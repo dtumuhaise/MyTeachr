@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import "../css/TeacherRegistrationModal.css";
 
 
@@ -41,6 +42,8 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
     // Then, close the modal using onHide.
     onHide();
   };
+
+  
 
   return (
     <Modal show={show} onHide={onHide}>
@@ -184,15 +187,24 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
             <label htmlFor="instrumentTaught" className="form-label">
               Instrument Taught<span className="required">*</span>
             </label>
-            <input
-              type="text"
-              className={`form-control ${submitted && formData.instrumentTaught === "" ? "is-invalid" : ""}`}
+            <Form.Control
+              as="select"
               id="instrumentTaught"
               name="instrumentTaught"
               value={formData.instrumentTaught || ""}
               onChange={handleInputChange}
-              required
-            />
+              required>
+              <option value="">select</option>
+              <option value="Piano">Piano/Keyboard</option>
+              <option value="Guitar">Guitar</option>
+              <option value="Bass">Bass</option>
+              <option value="Drums">Drums</option>
+              <option value="Vocals">Vocals</option>
+              <option value="Others">Others</option>
+
+              </Form.Control>            
+            <div className="invalid-feedback">Instrument taught is required</div>
+
           </div>
 
           
@@ -202,15 +214,19 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
             <label htmlFor="levelsTaught" className="form-label">
               Levels Taught<span className="required">*</span>
             </label>
-            <input
-              type="text"
-              className={`form-control ${submitted && formData.levelsTaught === "" ? "is-invalid" : ""}`}
+            <Form.Control
+              as="select"
               id="levelsTaught"
               name="levelsTaught"
               value={formData.levelsTaught || ""}
               onChange={handleInputChange}
-              required
-            />
+              required>
+              <option value="">select</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="All">All</option>
+              </Form.Control>            
             <div className="invalid-feedback">Levels taught is required</div>
           </div>
 
