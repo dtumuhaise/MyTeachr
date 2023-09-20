@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, FormGroup, FormControl } from "react-bootstrap";
+import TeacherRegistrationModal from "./TeacherRegistrationModal";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/login.css";
+
 
 const LoginModal = ({ show, onHide }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [rememberMe, setRememberMe] = useState(false);
+  // const [rememberMe, setRememberMe] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [showRegistration, setShowRegistration] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleRememberMe = () => {
-    setRememberMe(!rememberMe);
-  };
+  // const handleRememberMe = () => {
+  //   setRememberMe(!rememberMe);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,12 +33,16 @@ const LoginModal = ({ show, onHide }) => {
     }
 
     if (Object.keys(errors).length === 0) {
-      // Submit the form (e.g., send login request)
       console.log("Form submitted:", formData);
     } else {
       setFormErrors(errors);
     }
   };
+
+  const openRegistrationModal = () => {
+    setShowRegistration(true);
+  };
+
 
   return (
     <Modal show={show} onHide={onHide} centered>
@@ -41,6 +50,8 @@ const LoginModal = ({ show, onHide }) => {
         <Modal.Title><h3>Teacher's Login</h3></Modal.Title>
       </Modal.Header>
       <Modal.Body>
+
+        
         <Form onSubmit={handleSubmit}>
           <FormGroup>
             <Form.Label>Email</Form.Label>
@@ -70,6 +81,7 @@ const LoginModal = ({ show, onHide }) => {
             </Form.Control.Feedback>
           </FormGroup>
 
+          {/* <div className="remember">
           <FormGroup>
             <Form.Check
               type="checkbox"
@@ -79,10 +91,29 @@ const LoginModal = ({ show, onHide }) => {
               onChange={handleRememberMe}
             />
           </FormGroup>
+          </div> */}
 
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
+                  
+<         div className="d-flex justify-content-between mt-3">
+            <button
+              style={{ cursor: "pointer", color: "green", backgroundColor: "white" }}
+              onClick={openRegistrationModal}
+              className="btn btn-secondary"
+            >
+              Need and Account?
+            </button>
+
+            <Button variant="success" type="submit">
+              Sign In
+            </Button>
+          </div>
+
+          {showRegistration && (
+            <TeacherRegistrationModal
+              show={showRegistration}
+              onHide={() => setShowRegistration(false)}
+            />
+          )}
         </Form>
       </Modal.Body>
     </Modal>

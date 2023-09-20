@@ -1,10 +1,10 @@
 import React from "react";
 
-const Classes = () => {
+const Store = () => {
     return (
         <div>
             <h1>Store</h1>
         </div>
     );
 };
-export default Classes;
+export default Store;

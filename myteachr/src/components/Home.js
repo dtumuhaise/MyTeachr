@@ -51,6 +51,7 @@ const Home = () => {
               
             />
           </div>
+          
           <div className="col-md-4">
             <button className="btn btn-primary btn-block" onClick={handleClick}>
               Search
@@ -58,6 +59,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

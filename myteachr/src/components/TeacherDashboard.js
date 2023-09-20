@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
 
 
-const TeacherDashboard = ({ user}) => {
+const Dashboard = ({ user}) => {
     return (
       <div className="container mt-5">
         <div className="row">
@@ -32,7 +32,7 @@ const TeacherDashboard = ({ user}) => {
     );
   };
   
-  export default TeacherDashboard;
+  export default Dashboard;
   
   
   

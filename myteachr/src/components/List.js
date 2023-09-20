@@ -4,6 +4,10 @@ import { NavLink } from "react-router-dom";
 import "../css/List.css";
 import TeacherRegistrationModal from "./TeacherRegistrationModal";
 import LoginModal from "./LoginModal";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 
 
 const List = () => {
@@ -44,30 +48,31 @@ const List = () => {
                 <NavLink to="/events" className="listItem"  activeClassName="active">Events</NavLink>
                 </div>
         </nav>
-          <div className="buttons">
-            <button
-              className="btn btn-primary mr-2"
-              onClick={handleShowRegistrationModal}
-            >
-              Register
-            </button>
-            <button onClick={handleShowLoginModal}>Login</button>
-            <LoginModal show={showLoginModal} onHide={handleCloseLoginModal} />
+
+
+        <div className="buttons">
+            <div className="d-flex">
+              <button
+                className="btn btnStyle"
+                onClick={handleShowRegistrationModal}
+                style={{ backgroundColor: "green", color: "white", marginRight: "10px" }}>Sign Up</button>
+
+              <button
+                className="btn btnStyle"
+                 style={{ backgroundColor: "white", color: "green", marginRight: "10px" }}
+                onClick={handleShowLoginModal}>Login</button>
+            </div>
           </div>
+  
         </div>
-
-</header> 
-<TeacherRegistrationModal
-    show={showRegistrationModal}
-    onHide={handleCloseRegistrationModal}
-    /> 
-<LoginModal
-    show={showLoginModal}
-    onHide={handleCloseLoginModal}
-    />
-
+      </header>
+      <TeacherRegistrationModal
+        show={showRegistrationModal}
+        onHide={handleCloseRegistrationModal}
+      />
+      <LoginModal show={showLoginModal} onHide={handleCloseLoginModal} />
     </>
-    );
-}
+  );
+};
 
 export default List;
