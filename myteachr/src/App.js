@@ -5,6 +5,7 @@ import Teachers from "./components/Teachers";
 import Store from "./components/Store";
 import List from "./components/List";
 import Footer from "./components/Footer";
+
 // import Events from "./components/Events";
 
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route path="/teachers" element={<Teachers />} />
         <Route path="/store" element={<Store />} />
+        
         {/* <Route path="/teacher/:id" component={TeacherProfile} /> */}
       </Routes>
       <Footer />

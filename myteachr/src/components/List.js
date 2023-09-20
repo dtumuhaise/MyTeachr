@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import logo from "../Images/logo.png";
 import { NavLink } from "react-router-dom";
-import PersonIcon from '@mui/icons-material/Person';
 import "../css/List.css";
 import TeacherRegistrationModal from "./TeacherRegistrationModal";
+import LoginModal from "./LoginModal";
 
 
 const List = () => {
     const [showRegistrationModal, setShowRegistrationModal] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
 
     const handleShowRegistrationModal = () => {
     setShowRegistrationModal(true);
@@ -16,8 +18,18 @@ const List = () => {
     const handleCloseRegistrationModal = () => {
     setShowRegistrationModal(false);
     };
+
+    const handleShowLoginModal = () => {
+    setShowLoginModal(true);
+    };
+
+    const handleCloseLoginModal = () => {
+    setShowLoginModal(false);
+    };
+
     return (
     <>
+
 <header>
     <div className="container container-flex">
         <div className="logo-container">
@@ -30,23 +42,30 @@ const List = () => {
                 <NavLink to="/teachers" className="listItem"  activeClassName="active">Teachers</NavLink>
                 <NavLink to="/store" className="listItem"  activeClassName="active">Store</NavLink>
                 <NavLink to="/events" className="listItem"  activeClassName="active">Events</NavLink>
-                <div className="icons">
-          <span
-            className="listItem"
-            activeClassName="active"
-            onClick={handleShowRegistrationModal}
-          >
-            <PersonIcon className="icon" />
-          </span>
-        </div>
-            </div>
+                </div>
         </nav>
-    </div>
+          <div className="buttons">
+            <button
+              className="btn btn-primary mr-2"
+              onClick={handleShowRegistrationModal}
+            >
+              Register
+            </button>
+            <button onClick={handleShowLoginModal}>Login</button>
+            <LoginModal show={showLoginModal} onHide={handleCloseLoginModal} />
+          </div>
+        </div>
+
 </header> 
 <TeacherRegistrationModal
     show={showRegistrationModal}
     onHide={handleCloseRegistrationModal}
-    />       
+    /> 
+<LoginModal
+    show={showLoginModal}
+    onHide={handleCloseLoginModal}
+    />
+
     </>
     );
 }

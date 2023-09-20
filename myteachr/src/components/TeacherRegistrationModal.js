@@ -1,9 +1,16 @@
 
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import "../css/TeacherRegistrationModal.css";
+
 
 const TeacherRegistrationModal = ({ show, onHide }) => {
+
+  const [submitted, setSubmitted] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -23,7 +30,12 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();    
+    setSubmitted(true);
+    console.log(formData);    
+    setRegistrationSuccess(true);
+    
+
     // Handle form submission here
     // You can send the registration data to your server or perform any necessary actions.
     // Then, close the modal using onHide.
@@ -33,153 +45,214 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
   return (
     <Modal show={show} onHide={onHide}>
       <Modal.Header closeButton>
-        <Modal.Title>Teacher Registration</Modal.Title>
+        <Modal.Title>
+          <h3>Teacher Registration</h3></Modal.Title>
       </Modal.Header>
       <Modal.Body>
+
         {/* Registration form */}
         <form onSubmit={handleSubmit}>
           <div className="row">
+
+      {/* left side */}
+
+     
           <div className="col-md-6">
-          <div className="mb-3">
+          <div className={`mb-3 ${submitted && formData.firstName === "" ? "has-error" : ""}`}>
             <label htmlFor="firstName" className="form-label">
-              First Name
+              First Name<span className="required">*</span>
             </label>
             <input
               type="text"
-              className="form-control"
+              className={`form-control ${submitted && formData.firstName === "" ? "is-invalid" : ""}`}
               id="firstName"
               name="firstName"
               value={formData.firstName || ""}
               onChange={handleInputChange}
-            />            
-          </div>
-          <div className="mb-3">
-            <label htmlFor="lastName" className="form-label">
-              Last Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName || ""}
-              onChange={handleInputChange}
+              required
             />
+            <div className="invalid-feedback">First name is required</div>            
           </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email Address
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={formData.email || ""}
-              onChange={handleInputChange}
-            />
-          </div>
-          </div>
-          <div className="col-md-6">
-          <div className="mb-3">
+
+
+          <div className={`mb-3 ${submitted && formData.password === "" ? "has-error" : ""}`}>
             <label htmlFor="password" className="form-label">
-              Password
+              Password<span className="required">*</span>
             </label>
             <input
               type="password"
-              className="form-control"
+              className={`form-control ${submitted && formData.password === "" ? "is-invalid" : ""}`}
               id="password"
               name="password"
               value={formData.password || ""}
               onChange={handleInputChange}
+              required
             />
+            <div className="invalid-feedback">Password is required</div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="confirmPassword" className="form-label">
-              Confirm Password
+
+
+          <div className={`mb-3 ${submitted && formData.email === "" ? "has-error" : ""}`}>
+            <label htmlFor="email" className="form-label">
+              Email Address<span className="required">*</span>
             </label>
             <input
-              type="password"
-              className="form-control"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={formData.confirmPassword || ""}
+              type="email"
+              className={`form-control ${submitted && formData.email === "" ? "is-invalid" : ""}`}
+              id="email"
+              name="email"
+              value={formData.email || ""}
               onChange={handleInputChange}
+              required
             />
+            <div className="invalid-feedback">Email is required</div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="instrumentTaught" className="form-label">
-              Instrument Taught
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="instrumentTaught"
-              name="instrumentTaught"
-              value={formData.instrumentTaught || ""}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="mb-3">
+
+          <div className={`mb-3 ${submitted && formData.feeInUgandaShillings === "" ? "has-error" : ""}`}>
             <label htmlFor="feeInUgandaShillings" className="form-label">
-              Fee in Uganda Shillings
+              Fee in Uganda Shillings<span className="required">*</span>
             </label>
             <input
               type="number"
-              className="form-control"
+              className={`form-control ${submitted && formData.feeInUgandaShillings === "" ? "is-invalid" : ""}`}
               id="feeInUgandaShillings"
               name="feeInUgandaShillings"
               value={formData.feeInUgandaShillings || ""}
               onChange={handleInputChange}
+              required
             />
+            <div className="invalid-feedback">Fee is required</div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="levelsTaught" className="form-label">
-              Levels Taught
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="levelsTaught"
-              name="levelsTaught"
-              value={formData.levelsTaught || ""}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="mb-3">
+
+          <div className={`mb-3 ${submitted && formData.location === "" ? "has-error" : ""}`}>
             <label htmlFor="location" className="form-label">
-              Location
+              Location<span className="required">*</span>
             </label>
             <input
               type="text"
-              className="form-control"
+              className={`form-control ${submitted && formData.location === "" ? "is-invalid" : ""}`}
               id="location"
               name="location"
               value={formData.location || ""}
               onChange={handleInputChange}
+              required
+            />
+            <div className="invalid-feedback">Location is required</div>
+          </div>
+
+          </div>
+
+          {/* right side */}
+          <div className="col-md-6">
+          
+
+          <div className={`mb-3 ${submitted && formData.lastName === "" ? "has-error" : ""}`}>
+            <label htmlFor="lastName" className="form-label">
+              Last Name<span className="required">*</span>
+            </label>
+            <input
+              type="text"
+              className={`form-control ${submitted && formData.lastName === "" ? "is-invalid" : ""}`}
+              id="lastName"
+              name="lastName"
+              value={formData.lastName || ""}
+              onChange={handleInputChange}
+              required
+            />
+            <div className="invalid-feedback">Last name is required</div>
+
+          </div>
+
+          <div className={`mb-3 ${submitted && formData.confirmPassword === "" ? "has-error" : ""}`}>
+            <label htmlFor="confirmPassword" className="form-label">
+              Confirm Password<span className="required">*</span>
+            </label>
+            <input
+              type="password"
+              className={`form-control ${submitted && formData.confirmPassword === "" ? "is-invalid" : ""}`}
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword || ""}
+              onChange={handleInputChange}
+              required
+            />
+            <div className="invalid-feedback">Confirm password is required</div>
+          </div>
+
+
+          <div className={`mb-3 ${submitted && formData.instrumentTaught === "" ? "has-error" : ""}`}>
+            <label htmlFor="instrumentTaught" className="form-label">
+              Instrument Taught<span className="required">*</span>
+            </label>
+            <input
+              type="text"
+              className={`form-control ${submitted && formData.instrumentTaught === "" ? "is-invalid" : ""}`}
+              id="instrumentTaught"
+              name="instrumentTaught"
+              value={formData.instrumentTaught || ""}
+              onChange={handleInputChange}
+              required
             />
           </div>
-          <div className="mb-3">
+
+          
+
+          
+          <div className={`mb-3 ${submitted && formData.levelsTaught === "" ? "has-error" : ""}`}>
+            <label htmlFor="levelsTaught" className="form-label">
+              Levels Taught<span className="required">*</span>
+            </label>
+            <input
+              type="text"
+              className={`form-control ${submitted && formData.levelsTaught === "" ? "is-invalid" : ""}`}
+              id="levelsTaught"
+              name="levelsTaught"
+              value={formData.levelsTaught || ""}
+              onChange={handleInputChange}
+              required
+            />
+            <div className="invalid-feedback">Levels taught is required</div>
+          </div>
+
+          </div>
+
+          <div className={`mb-3 ${submitted && formData.bio === "" ? "has-error" : ""}`}>
             <label htmlFor="bio" className="form-label">
-              Bio
+              Bio<span className="required">*</span>
             </label>
             <textarea
-              className="form-control"
+              className={`form-control ${submitted && formData.bio === "" ? "is-invalid" : ""}`}
               id="bio"
               name="bio"
               value={formData.bio || ""}
               onChange={handleInputChange}
+              required
             />
-          </div>
+            <div className="invalid-feedback">Bio is required</div>
           </div>
           </div>
 
 
-          {/* Add more form fields as needed */}
-          <Button type="submit" variant="primary">
+          <div className="mb-3 form-check btnAlign">
+          <Button
+            className="btn" 
+            type="submit" 
+            variant="primary"
+           
+            >
             Register
           </Button>
+          </div>
+
+          {registrationSuccess && (
+            <div className="alert alert-success" role="alert">
+              Teacher has successfully registered!
+            </div>
+          )}
+
+
         </form>
+
       </Modal.Body>
     </Modal>
   );

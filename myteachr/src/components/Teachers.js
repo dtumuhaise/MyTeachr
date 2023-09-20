@@ -77,9 +77,9 @@ function Teachers() {
         <div className="row">
         {filteredUsers.map((user, index) => (          
           <div key={index} className="col-md-4 mb-4">
-            <div className="card items" >
+            <div className="card" >
               <span
-                    className="link"
+                    className="link items"
                     onClick={() => openProfileModal(user)}
                     style={{ cursor: 'pointer' }}>
                     <img src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} className="card-img-top img-fluid rounded-circle custom-img-size"/>
@@ -104,12 +104,13 @@ function Teachers() {
         ))}
       </div>
 
+      
+
       <Modal show={selectedTeacher !== null} onHide={closeProfileModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Teacher Profile</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* Render the TeacherProfile component with the selectedTeacher data */}
           {selectedTeacher && (
             <div>
               <img src={selectedTeacher.profilePicUrl} alt={`${selectedTeacher.firstName} ${selectedTeacher.lastName}`} className="img-fluid rounded-circle" />
