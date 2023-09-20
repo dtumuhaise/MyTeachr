@@ -43,6 +43,7 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
     onHide();
   };
 
+  const isCustomInstrumentSelected = formData.instrumentTaught === "Others";
   
 
   return (
@@ -206,6 +207,24 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
             <div className="invalid-feedback">Instrument taught is required</div>
 
           </div>
+
+          {isCustomInstrumentSelected && (
+                <div className={`mb-3 ${submitted && formData.customInstrument === "" ? "has-error" : ""}`}>
+                  <label htmlFor="customInstrument" className="form-label">
+                    Other Instrument<span className="required">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    className={`form-control ${submitted && formData.customInstrument === "" ? "is-invalid" : ""}`}
+                    id="customInstrument"
+                    name="customInstrument"
+                    value={formData.customInstrument || ""}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <div className="invalid-feedback">Custom instrument is required</div>
+                </div>
+              )}
 
           
 

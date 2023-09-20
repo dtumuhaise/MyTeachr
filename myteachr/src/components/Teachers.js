@@ -36,13 +36,18 @@ function Teachers() {
   };
 
   const handleMessageTeacherClick = (teacher) => {
-    
     console.log(`Message sent to ${teacher.firstName} ${teacher.lastName}`);
+  };
+
+  const handleSearch = () => {
+    console.log(`Search clicked`);
   };
 
   return (
     <div className="container">
-      <h1>Teachers</h1>
+      {/* <div className="teachersHeader">
+        <h1 className="text-secondary font-family-poppins">Teachers</h1>
+      </div> */}
 
       <div className="searchArea">
         <div className="row">
@@ -56,6 +61,7 @@ function Teachers() {
               onChange={handleFilterChange}
             />
           </div>
+
           <div className="col-md-4">
             <input
               type="text"
@@ -67,7 +73,7 @@ function Teachers() {
             />
           </div>
           <div className="col-md-4">
-            {/* <button className="btn btn-primary btn-block" onClick={handleSearch}>Search</button> */}
+            <button className="btn btn-primary btn-block" onClick={handleSearch}>Search</button>
           </div>
         </div>
       </div>
