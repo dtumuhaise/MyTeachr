@@ -36,10 +36,6 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
     console.log(formData);    
     setRegistrationSuccess(true);
     
-
-    // Handle form submission here
-    // You can send the registration data to your server or perform any necessary actions.
-    // Then, close the modal using onHide.
     onHide();
   };
 

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Home.css";
+import TeacherRegistrationModal from "./TeacherRegistrationModal";
 
 const Home = () => {
+  const [showRegistration, setShowRegistration] = useState(false);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -17,11 +19,17 @@ const Home = () => {
     }
   };
 
+  const openRegistrationModal = () => {
+    setShowRegistration(true);
+  };
+
   return (
     <div 
-      style={{ marginTop: "150px", backgroundColor: "#f5f5f5" }}
+      style={{ marginTop: "100px", backgroundColor: "#f5f5f5" }}
       className="container">
-      <div className="row mt-5">
+      <div 
+        style={{ padding: "70px" }}
+        className="row mt-5">
 
         <div 
           style={{ marginTop: "50px" }}
@@ -30,7 +38,7 @@ const Home = () => {
             style={{ marginBottom: "20px", display: "flex", justifyContent: "center", fontFamily: "Poppins", color: "#6C757D" }}
             className="display-4">Welcome to MyTeachr</h3>
           <p 
-            style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}
+            style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}
             className="lead">
             Connect with experienced music teachers in your area and start your
             musical journey today.
@@ -63,6 +71,31 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div 
+        style={{ paddingBottom: "50px" }}
+        className="row mt-5">
+        <div className="col-md-6 offset-md-3 text-center">
+          <h4
+            style={{fontFamily: "Poppins", color: "#6C757D"}}            
+            >
+              Are you a music teacher?
+          </h4>
+          <p>Join MyTeachr and showcase your teaching skills!</p>
+          <button
+            className="btn btn-success"
+            onClick={openRegistrationModal}
+          >
+            Sign Up as a Teacher
+          </button>
+        </div>
+      </div>
+      {showRegistration && (
+        <TeacherRegistrationModal
+          show={showRegistration}
+          onHide={() => setShowRegistration(false)}
+        />
+      )}
     </div>
   );
 };
