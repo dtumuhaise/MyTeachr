@@ -1,65 +1,68 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Home.css";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [instrument, setInstrument] = useState("");
-  const [location, setLocation] = useState("");
-  
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleClick = () => {
-    navigate(`/teachers?instrument=${instrument}&location=${location}`);
-  }
+  const handleSearch = () => {
+    navigate(`/teachers?search=${searchQuery}`);
+  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleClick();
+      handleSearch();
     }
   };
 
-  
-
   return (
-    <div>
-      <div className="banner text-black text-center py-5">
-        <h1 className="text-secondary font-family-poppins">Find your teacher</h1>
-      </div>
+    <div 
+      style={{ marginTop: "150px", backgroundColor: "#f5f5f5" }}
+      className="container">
+      <div className="row mt-5">
 
-      <div className="searchArea">
-        <div className="row">
-          <div className="col-md-4">
+        <div 
+          style={{ marginTop: "50px" }}
+          className="">
+          <h3
+            style={{ marginBottom: "20px", display: "flex", justifyContent: "center", fontFamily: "Poppins", color: "#6C757D" }}
+            className="display-4">Welcome to MyTeachr</h3>
+          <p 
+            style={{ marginBottom: "20px", display: "flex", justifyContent: "center" }}
+            className="lead">
+            Connect with experienced music teachers in your area and start your
+            musical journey today.
+          </p>
+          <div
+            style={{ display: "flex", justifyContent: "center" }}
+            className="input-group mb-3">
+             <div 
+              style={{ display: "flex", justifyContent: "center"}}
+              class="col-md-6">             
             <input
               type="text"
               className="form-control"
-              placeholder="Instrument"
-              value={instrument}
-              onChange={(e) => setInstrument(e.target.value)}
+              placeholder="Search for teachers by instrument or location"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleKeyDown}
-              
             />
-          </div>
-          <div className="col-md-4">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              onKeyDown={handleKeyDown}
-              
-            />
-          </div>
-          
-          <div className="col-md-4">
-            <button className="btn btn-primary btn-block" onClick={handleClick}>
-              Search
-            </button>
+            <div className="input-group-append">
+              <button
+                style={{ marginLeft: "10px" }}
+                className="btn btn-primary"
+                type="button"
+                onClick={handleSearch}
+              >
+                Search
+              </button>
+            </div>
+            </div>
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

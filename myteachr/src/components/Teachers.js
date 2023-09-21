@@ -6,9 +6,11 @@ import { Modal, Button } from 'react-bootstrap';
 
 
 
-function Teachers() {
+function Teachers({ instrument, location}) {
   const [filter, setFilter] = useState({ instrument: '', location: '' });
   const [selectedTeacher, setSelectedTeacher] = useState(null);
+
+
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +44,8 @@ function Teachers() {
   const handleSearch = () => {
     console.log(`Search clicked`);
   };
+
+  
 
   return (
     <div className="container">
@@ -84,12 +88,15 @@ function Teachers() {
         {filteredUsers.map((user, index) => (          
           <div key={index} className="col-md-4 mb-4">
             <div className="card" >
-              <span
-                    className="link items"
-                    onClick={() => openProfileModal(user)}
-                    style={{ cursor: 'pointer' }}>
-                    <img src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} className="card-img-top img-fluid rounded-circle custom-img-size"/>
-                  </span>
+                
+              <div className='profilePic'>
+                <span
+                      className="link items"
+                      onClick={() => openProfileModal(user)}
+                      style={{ cursor: 'pointer' }}>
+                      <img src={user.profilePicUrl} alt={`${user.firstName} ${user.lastName}`} className="card-img-top img-fluid rounded-circle custom-img-size"/>
+                    </span>
+              </div>
               
               <div className="card-body">
                 <h2 className="card-title">
