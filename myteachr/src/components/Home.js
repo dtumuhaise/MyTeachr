@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div 
-      style={{ marginTop: "100px", backgroundColor: "#f5f5f5" }}
+      style={{ marginTop: "60px", backgroundColor: "#f5f5f5" }}
       className="container">
       <div 
         style={{ padding: "70px" }}
