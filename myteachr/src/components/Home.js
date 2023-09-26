@@ -87,7 +87,9 @@ const Home = () => {
             Are you a music teacher?
           </h4>
           <p>Join MyTeachr and showcase your teaching skills!</p>
-          <button className="btn btn-success" onClick={openRegistrationModal}>
+          <button
+            style={{ fontFamily: "Poppins", height: "60px", marginTop: "20px" }}
+            className="btn btn-success" onClick={openRegistrationModal}>
             Sign Up as a Teacher
           </button>
         </div>

@@ -48,7 +48,13 @@ const LoginModal = ({ show, onHide }) => {
         
         <Form onSubmit={handleSubmit}>
           <FormGroup>
+            <div
+              style={{paddingBottom: "5px", paddingTop: "10px"}}
+              className="d-flex">
             <Form.Label>Email</Form.Label>
+            <span className="required">*</span>
+            </div>
+            
             <FormControl
               type="email"
               name="email"
@@ -62,7 +68,13 @@ const LoginModal = ({ show, onHide }) => {
           </FormGroup>
 
           <FormGroup>
+            <div 
+              style={{paddingBottom: "5px", paddingTop: "10px"}}
+              className="d-flex">
             <Form.Label>Password</Form.Label>
+            <span className="required">*</span>
+            </div>
+    
             <FormControl
               type="password"
               name="password"
@@ -76,7 +88,9 @@ const LoginModal = ({ show, onHide }) => {
           </FormGroup>
 
                   
-<         div className="d-flex justify-content-between mt-3">
+<         div 
+            style={{paddingTop: "40px"}}
+            className="d-flex justify-content-between mt-3">
             <button
               style={{ cursor: "pointer", color: "green", backgroundColor: "white" }}
               onClick={openRegistrationModal}
@@ -88,6 +102,7 @@ const LoginModal = ({ show, onHide }) => {
             <Button variant="success" type="submit">
               Sign In
             </Button>
+            
           </div>
 
           {showRegistration && (
