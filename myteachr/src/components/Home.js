@@ -46,7 +46,7 @@ const Home = () => {
             style={{
               display: "flex",
               justifyContent: "center",
-              position: "relative", // Add this line for positioning
+              position: "relative", 
             }}
             className="input-group mb-3"
           >
@@ -54,7 +54,7 @@ const Home = () => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                position: "relative", // Add this line for positioning
+                position: "relative", 
               }}
               class="col-md-6"
             >
@@ -64,8 +64,8 @@ const Home = () => {
                   height: "60px",
                   width: "100%",
                   borderRadius: "10px",
-                  paddingRight: "40px", // Add padding for the icon
-                  backgroundImage: `url(${SearchIcon})`, // Set the background image
+                  paddingRight: "40px", 
+                  backgroundImage: `url(${SearchIcon})`,
                   backgroundPosition: "right center",
                   backgroundRepeat: "no-repeat",
                 }}
@@ -76,7 +76,6 @@ const Home = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
               />
-              {/* Remove the button element */}
             </div>
           </div>
         </div>
