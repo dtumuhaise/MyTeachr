@@ -43,11 +43,11 @@ header{
     text-decoration: none;
     font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .active{
     border-bottom: .1em solid #6bb282;
-
 }
 
 /* .icon {
@@ -70,8 +70,6 @@ header{
     .listItem{
         margin-left: 0;
         margin-top: 0;
-    }
-    .listItem{
         font-size: 1.2rem;
     }
     .listItem:hover{

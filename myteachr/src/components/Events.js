@@ -50,14 +50,14 @@ const Events = () => {
   return (
     <div className="container mt-5">
         <div className="eventsHeader">
-        <h1 className="text-secondary font-family-poppins">Events Near Me</h1>
+          <h1 className="text-secondary font-family-poppins">Events Near Me</h1>
         </div>
       <div className="row">
         {events.map((event) => (
           <div key={event.id} className="col-md-4 mb-4">
             <div className="card">
-              <div 
-                
+              <div
+                style={{height: "400px", overflow: "hidden"}}               
                 className="card-body">
                 <h4
                   style={{ fontFamily: "Poppins", fontWeight: "bold", textAlign: "center", padding: "10px"}}
@@ -70,7 +70,7 @@ const Events = () => {
                 <p className="card-text"><strong>Fee: </strong>{event.fee}</p>
 
                 <div
-                  style={{ cursor: "pointer", justifyContent: "center" }}
+                  style={{ cursor: "pointer", justifyContent: "center", position: "absolute", bottom: "10px", left: "50%", transform: "translateX(-50%)" }}
                   className="d-flex">
                     <button 
                     style={{ cursor: "pointer", color: "white", backgroundColor: "#6bb282"}} 

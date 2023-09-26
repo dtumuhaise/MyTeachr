@@ -36,15 +36,16 @@ const List = () => {
 
 <header>
     <div className="container container-flex">
+      
         <div className="logo-container">
-        <NavLink exact to="/" ><a href="/" title="Home"><img src={logo} alt="logo" className="logo" /> </a></NavLink>
+          <a href="/" title="Home" style={{ textDecoration: 'none' }}><img src={logo} alt="logo" className="logo" /></a>
         </div>   
 
         <nav>
             <div className="list">
-                <NavLink to="/teachers" className="listItem"  activeClassName="active">Teachers</NavLink>
-                <NavLink to="/store" className="listItem"  activeClassName="active">Store</NavLink>
+                <NavLink to="/teachers" className="listItem"  activeClassName="active">Teachers</NavLink>                
                 <NavLink to="/events" className="listItem"  activeClassName="active">Events</NavLink>
+                <NavLink to="/store" className="listItem"  activeClassName="active">Store</NavLink>
                 </div>
         </nav>
 
@@ -53,7 +54,7 @@ const List = () => {
               <button
                 className="btn btnStyle"
                 onClick={handleShowRegistrationModal}
-                style={{ backgroundColor: "green", color: "white", marginRight: "10px" }}>Sign Up</button>
+                style={{ backgroundColor: "#6bb282", color: "white", marginRight: "10px" }}>Sign Up</button>
 
               <button
                 className="btn btnStyle"
