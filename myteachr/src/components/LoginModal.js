@@ -7,7 +7,6 @@ import "../css/login.css";
 
 const LoginModal = ({ show, onHide }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  // const [rememberMe, setRememberMe] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const [showRegistration, setShowRegistration] = useState(false);
 
@@ -15,11 +14,6 @@ const LoginModal = ({ show, onHide }) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-  // const handleRememberMe = () => {
-  //   setRememberMe(!rememberMe);
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const errors = {};
@@ -81,18 +75,6 @@ const LoginModal = ({ show, onHide }) => {
             </Form.Control.Feedback>
           </FormGroup>
 
-          {/* <div className="remember">
-          <FormGroup>
-            <Form.Check
-              type="checkbox"
-              name="rememberMe"
-              label="Remember Me"
-              checked={rememberMe}
-              onChange={handleRememberMe}
-            />
-          </FormGroup>
-          </div> */}
-
                   
 <         div className="d-flex justify-content-between mt-3">
             <button
@@ -116,6 +98,7 @@ const LoginModal = ({ show, onHide }) => {
           )}
         </Form>
       </Modal.Body>
+      
     </Modal>
   );
 };

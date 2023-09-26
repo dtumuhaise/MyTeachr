@@ -56,8 +56,12 @@ const Events = () => {
         {events.map((event) => (
           <div key={event.id} className="col-md-4 mb-4">
             <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">{event.title}</h5>
+              <div 
+                
+                className="card-body">
+                <h4
+                  style={{ fontFamily: "Poppins", fontWeight: "bold", textAlign: "center", padding: "10px"}}
+                 className="card-title">{event.title}</h4>
                 <p className="card-text"><strong>Teacher: </strong> {getTeacherFullName(event.teacherId)}</p>
                 <p className="card-text"><strong>Date: </strong>{event.date}</p>
                 <p className="card-text"><strong>Time: </strong>{event.time}</p>
@@ -65,8 +69,12 @@ const Events = () => {
                 <p className="card-text"><strong>Location: </strong>{event.location}</p>
                 <p className="card-text"><strong>Fee: </strong>{event.fee}</p>
 
-                <div className="d-flex justify-content-between align-items-center">
-                    <button style={{ cursor: "pointer", color: "white", backgroundColor: "#6bb282"}} className="btn btn-secondary">
+                <div
+                  style={{ cursor: "pointer", justifyContent: "center" }}
+                  className="d-flex">
+                    <button 
+                    style={{ cursor: "pointer", color: "white", backgroundColor: "#6bb282"}} 
+                    className="btn btn-secondary">
                         Register Now
                     </button>
                 </div>

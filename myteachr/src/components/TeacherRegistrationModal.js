@@ -5,24 +5,24 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../css/TeacherRegistrationModal.css";
+import RegistrationSuccessModal from "./RegistrationSuccessModal";
 
 
 const TeacherRegistrationModal = ({ show, onHide }) => {
 
-  const [submitted, setSubmitted] = useState(false);
-  const [registrationSuccess, setRegistrationSuccess] = useState(false);
-
+  const [submitted, setSubmitted] = useState(false); 
+  const [showRegistrationSuccessModal, setShowRegistrationSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    instrumentTaught: "",
-    feeInUgandaShillings: "",
-    levelsTaught: "",
-    location: "",
-    bio: "",
+    firstName: "Davis",
+    lastName: "da",
+    email: "me@gmail",
+    password: "123",
+    confirmPassword: "123",
+    instrumentTaught: "drums",
+    feeInUgandaShillings: "20000",
+    levelsTaught: "all",
+    location: "kampala",
+    bio: "passion",
   });
 
   const handleInputChange = (e) => {
@@ -31,12 +31,11 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();    
+    e.preventDefault();  
     setSubmitted(true);
-    console.log(formData);    
-    setRegistrationSuccess(true);
-    
-    onHide();
+    console.log(formData);   
+    setShowRegistrationSuccessModal(true);    
+    onHide();  
   };
 
   const isCustomInstrumentSelected = formData.instrumentTaught === "Others";
@@ -257,6 +256,8 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
               name="bio"
               value={formData.bio || ""}
               onChange={handleInputChange}
+              placeholder="Tell us about yourself, your experience, your teaching style, etc."
+              style={{ height: "150px" }}
               required
             />
             <div className="invalid-feedback">Bio is required</div>
@@ -268,25 +269,27 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
           <Button
             className="btn" 
             type="submit" 
-            variant="primary"
-           
-            >
+            variant="primary">
             Register
           </Button>
           </div>
 
-          {registrationSuccess && (
+          {/* {registrationSuccess && (
             <div className="alert alert-success" role="alert">
               Teacher has successfully registered!
             </div>
-          )}
+          )} */}
 
 
         </form>
-
       </Modal.Body>
+
+      {showRegistrationSuccessModal && (
+        <RegistrationSuccessModal show={showRegistrationSuccessModal} onHide={() => setShowRegistrationSuccessModal(false)} />
+      )}
+
+
     </Modal>
   );
-};
-
+}
 export default TeacherRegistrationModal;

@@ -1,5 +1,5 @@
 :root{
-    --mainColor:#6bb282;
+    --mainColor: white;
 }
 
 header{
@@ -10,18 +10,24 @@ header{
 .container{
     width: 95%;
     /* background-color: orange; */
-    margin: 0 auto;
-    max-width: 1200px;
+    margin: 0 auto; 
+    max-width: 100%;
 }
 
 .container-flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #ddd; /* Add the border at the bottom */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow */
+    width: 100%; 
+    padding: 1.5em 0;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 .logo{
-    width: 180px;
+    width: 250px;
     /* padding: .5rem 0; */
 }
 .list{
@@ -33,19 +39,42 @@ header{
 
 .listItem{
    margin-left: 2em;;
-   color: white;
+   color: #6bb282;
     text-decoration: none;
     font-size: 1.5rem;
     font-family: 'Poppins', sans-serif;
 }
 
 .active{
-    border-bottom: .1em solid #fff;
+    border-bottom: .1em solid #6bb282;
+
 }
 
-.icon {
+/* .icon {
     color: #fff;
     font-size: 1.5rem !important;
     margin-left: 1.5em;
     margin-right: 1em;
+} */
+
+@media screen and (max-width: 768px){
+    .list{
+        display: none;
+    }
+    .logo{
+        width: 150px;
+    }
+    .icon{
+        display: block;
+    }
+    .listItem{
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .listItem{
+        font-size: 1.2rem;
+    }
+    .listItem:hover{
+        color: #fff;
+    }
 }

@@ -7,6 +7,7 @@ import List from "./components/List";
 import Footer from "./components/Footer";
 import Dashboard from "./components/TeacherDashboard";
 import Events from "./components/Events";
+// import LandingPage from "./components/LandingPage";
 
 // import Events from "./components/Events";
 
@@ -21,9 +22,11 @@ const App = () => {
         <Route path="/store" element={<Store />} />
         <Route path="/profile" element={<Dashboard />} />
         <Route path="/events" element={<Events />} />
+       
 
       </Routes>
       <Footer />
+      
 
     </div>
   );

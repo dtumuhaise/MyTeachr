@@ -1,15 +1,11 @@
 footer{
     position: fixed;
-    bottom: 0;
-    background-color: white;
+    bottom: 0;    
+    height: auto;
     width: 100%;
-    padding: .5rem;
-    height: 50px;
+
 }
 
-.copyright p{
-    text-align: center;
-    color: grey;
-    margin-bottom: .5rem;
-    font-family: 'Poppins', sans-serif;
+a {
+    padding: 0px 20px;
 }

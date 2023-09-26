@@ -36,7 +36,7 @@ const Home = () => {
           className="">
           <h3
             style={{ marginBottom: "20px", display: "flex", justifyContent: "center", fontFamily: "Poppins", color: "#6C757D" }}
-            className="display-4">Welcome to MyTeachr</h3>
+            className="display-4">Welcome to myTeachr</h3>
           <p 
             style={{ marginBottom: "40px", display: "flex", justifyContent: "center" }}
             className="lead">
@@ -90,6 +90,8 @@ const Home = () => {
           </button>
         </div>
       </div>
+
+           
       {showRegistration && (
         <TeacherRegistrationModal
           show={showRegistration}
@@ -97,6 +99,7 @@ const Home = () => {
         />
       )}
     </div>
+    
   );
 };
 
