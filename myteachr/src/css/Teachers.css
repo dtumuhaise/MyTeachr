@@ -45,3 +45,7 @@ p, h2{
 .profilePic{
     padding-top: 2em;
 }
+
+Button.disabled-btn {
+    background-color: grey;
+}

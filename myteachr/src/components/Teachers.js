@@ -2,13 +2,16 @@ import React, { useState} from 'react';
 import Users from '../data/users';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Teachers.css';
-import { Modal, Button } from 'react-bootstrap'; 
+import { Modal, Button, Collapse, Alert } from 'react-bootstrap'; 
 
 
 
 function Teachers({ instrument, location}) {
   const [filter, setFilter] = useState({ instrument: '', location: '' });
   const [selectedTeacher, setSelectedTeacher] = useState(null);
+  const [message, setMessage] = useState('');
+  const [isSendingMessage, setIsSendingMessage] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
 
 
@@ -35,10 +38,25 @@ function Teachers({ instrument, location}) {
 
   const closeProfileModal = () => {
     setSelectedTeacher(null);
+    setMessage('');
+    setIsSendingMessage(false);
   };
 
   const handleMessageTeacherClick = (teacher) => {
+    setIsSendingMessage(true);
     console.log(`Message sent to ${teacher.firstName} ${teacher.lastName}`);
+  };
+
+  const handleSendMessage = () => {
+    if (message.trim() === '') {
+      return;
+    }
+      console.log(`Message sent to ${selectedTeacher.firstName} ${selectedTeacher.lastName}`);
+      setMessage('');
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 3000);
   };
 
   const handleSearch = () => {
@@ -134,10 +152,36 @@ function Teachers({ instrument, location}) {
               <p><strong>Levels Taught:</strong> {selectedTeacher.levelsTaught}</p>
               <p><strong>Description:</strong> {selectedTeacher.description}</p>
 
-              <button className="btn btn-primary" onClick={() => handleMessageTeacherClick(selectedTeacher)}>
-                Message Teacher</button>
 
-            
+              <Button
+                className="btn btn-primary"
+                onClick={() => handleMessageTeacherClick(selectedTeacher)}
+                aria-controls="messageCollapse"
+                aria-expanded={isSendingMessage}
+                variant={isSendingMessage ? "secondary" : "primary"}
+              >
+                {isSendingMessage ? "Cancel Message" : "Message Teacher"}
+              </Button>
+
+              <Collapse in={isSendingMessage}>
+                <div id="messageCollapse">
+                  <textarea
+                    rows="4"
+                    className="form-control mt-3"
+                    placeholder="Enter your message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  ></textarea>
+                  <Button 
+                    style={{backgroundColor: "#6bb282", borderColor: "#6bb282"}}
+                    className="btn btn-success mt-3" onClick={handleSendMessage} disabled={message.trim() === ''}>
+                    Send Message
+                  </Button>
+                </div>
+              </Collapse>
+              <Alert variant="success" show={showAlert}>
+                Message has been sent!
+              </Alert>
             </div>
           )}
         </Modal.Body>
