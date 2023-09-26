@@ -54,5 +54,5 @@ Your app should now be running at http://localhost:3000. Open it in your web bro
 2. Browse and search for music teachers based on your preferences.
 3. Click on a teacher's profile to view more details.
 4. Send messages to teachers for inquiries or to schedule lessons.
-5. Book lessons and events with your preferred teachers.
+5. Book lessons and events with your preferred teachers... Coming soon
 6. Explore upcoming music events and workshops.
