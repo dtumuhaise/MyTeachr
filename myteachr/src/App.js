@@ -7,8 +7,6 @@ import List from "./components/List";
 import Footer from "./components/Footer";
 import Dashboard from "./components/TeacherDashboard";
 import Events from "./components/Events";
-// import LandingPage from "./components/LandingPage";
-
 // import Events from "./components/Events";
 
 

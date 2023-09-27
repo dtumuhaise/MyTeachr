@@ -8,21 +8,24 @@ import "../css/TeacherRegistrationModal.css";
 import RegistrationSuccessModal from "./RegistrationSuccessModal";
 
 
+
 const TeacherRegistrationModal = ({ show, onHide }) => {
 
   const [submitted, setSubmitted] = useState(false); 
-  const [showRegistrationSuccessModal, setShowRegistrationSuccessModal] = useState(false);
+  const [showRegistrationSuccessModal, setShowRegistrationSuccessModal] = useState(true);
+  // const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
   const [formData, setFormData] = useState({
-    firstName: "Davis",
-    lastName: "da",
-    email: "me@gmail",
-    password: "123",
-    confirmPassword: "123",
-    instrumentTaught: "drums",
-    feeInUgandaShillings: "20000",
-    levelsTaught: "all",
-    location: "kampala",
-    bio: "passion",
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    instrumentTaught: "",
+    feeInUgandaShillings: "",
+    levelsTaught: "",
+    location: "",
+    bio: "",
   });
 
   const handleInputChange = (e) => {
@@ -33,9 +36,9 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
   const handleSubmit = (e) => {
     e.preventDefault();  
     setSubmitted(true);
-    console.log(formData);   
-    setShowRegistrationSuccessModal(true);    
+    console.log(formData);
     onHide();  
+    setShowRegistrationSuccessModal(true); 
   };
 
   const isCustomInstrumentSelected = formData.instrumentTaught === "Others";
@@ -274,7 +277,7 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
           </Button>
           </div>
 
-          {/* {registrationSuccess && (
+          {/* {submitted && (
             <div className="alert alert-success" role="alert">
               Teacher has successfully registered!
             </div>
@@ -282,9 +285,18 @@ const TeacherRegistrationModal = ({ show, onHide }) => {
 
 
         </form>
-      </Modal.Body>
 
-      {showRegistrationSuccessModal && (
+        {/* {registrationSuccess && (
+          <RegistrationSuccessModal
+            show={true}
+            onHide={() => {
+              setRegistrationSuccess(false);
+          }}
+        />
+      )} */}
+
+      </Modal.Body>
+      {submitted && (
         <RegistrationSuccessModal show={showRegistrationSuccessModal} onHide={() => setShowRegistrationSuccessModal(false)} />
       )}
 
